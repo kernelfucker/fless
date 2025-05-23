@@ -37,7 +37,7 @@ void *input_thread(void *arg){
 }
 
 FLAC__StreamDecoderWriteStatus write_callback(
-	const FLAC__StreamDecoder *decoer,
+	const FLAC__StreamDecoder *decoder,
 	const FLAC__Frame *frame,
 	const FLAC__int32 * const buffer[],
 	void *client_data)
