@@ -1,3 +1,5 @@
+/* See LICENSE file for license details */
+/* fless - 105 lines of flac player */
 #include <stdio.h>
 #include <unistd.h>
 #include <pthread.h>
