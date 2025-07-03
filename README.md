@@ -4,7 +4,7 @@
 2 = increases the volume
 
 # compile
-$ clang fless.c -o fless -lasound -lFLAC -lpthread
+$ clang fless.c -o fless -Os -s -lasound -lFLAC -lpthread
 
 # usage
 $ ./fless bring-me-to-life.flac
