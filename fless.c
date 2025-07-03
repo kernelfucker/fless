@@ -7,6 +7,8 @@
 #include <alsa/asoundlib.h>
 #include <FLAC/stream_decoder.h>
 
+#define version "0.2"
+
 // 105 lines of flac player :)
 
 snd_pcm_t *pcm = NULL;
@@ -83,7 +85,36 @@ FLAC__StreamDecoderWriteStatus write_callback(
 void metadata_callback(const FLAC__StreamDecoder *d, const FLAC__StreamMetadata *m, void *c) {}
 void error_callback(const FLAC__StreamDecoder *d, FLAC__StreamDecoderErrorStatus s, void *c) {}
 
+void help(const char *fless){
+	printf("usage: %s [options]..\n", fless);
+	printf("options:\n");
+	printf("  -h	display this\n");
+	printf("  -v	show version information\n");
+	exit(1);
+}
+
+void show_version(){
+	printf("fless-%s\n", version);
+	exit(1);
+}
+
 int main(int argc, char **argv){
+	if(argc == 2){
+		if(strcmp(argv[1], "-h") == 0){
+			help(argv[0]);
+		}
+
+		if(strcmp(argv[1], "-v") == 0){
+			show_version();
+		}
+	}
+
+	if(argc != 2){
+		fprintf(stderr, "usage: %s [file]\n", argv[0]);
+		fprintf(stderr, "try '%s -h' for more information\n", argv[0]);
+		exit(1);
+	}
+
 	if(argc < 2)return 1;
 
 	pthread_t input;
