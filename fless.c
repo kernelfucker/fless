@@ -88,8 +88,8 @@ void error_callback(const FLAC__StreamDecoder *d, FLAC__StreamDecoderErrorStatus
 void help(const char *fless){
 	printf("usage: %s [options]..\n", fless);
 	printf("options:\n");
-	printf("  -h	display this\n");
 	printf("  -v	show version information\n");
+	printf("  -h	display this\n");
 	exit(1);
 }
 
